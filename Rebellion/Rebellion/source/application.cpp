@@ -33,7 +33,7 @@ bool App::Initialize()
 		return false;
 	}
 
-	window = glfwCreateWindow(1280, 720, "Object Oriented", NULL, NULL);
+	window = glfwCreateWindow(1280, 720, "Rebellion Engine", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -59,10 +59,10 @@ bool App::Initialize()
 
 bool App::Print()
 {
-	std::cout << "Framework initialization succesful" << std::endl;
-	std::cout << "GLFW version " << glewGetString(GLEW_VERSION) << std::endl;
+	std::cout << "Framework initialization succesful..." << std::endl;
+	std::cout << "GLFW version " << glfwGetVersionString() << std::endl;
 	std::cout << "GLEW version " << glewGetString(GLEW_VERSION) << std::endl;
-	std::cout << "OpenGL version " << glfwGetVersionString() << std::endl;
+	std::cout << "OpenGL version " << glGetString(GL_VERSION) << std::endl;
 
 	return true;
 }
@@ -75,6 +75,7 @@ bool App::Loop()
 	m_ScreenRatio = m_ScreenWidth / (float)m_ScreenHeight;
 
 	glViewport(0, 0, m_ScreenWidth, m_ScreenHeight);
+	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glfwSwapBuffers(window);
