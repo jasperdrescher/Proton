@@ -45,3 +45,19 @@ bool Settings::Save(std::string a_Filepath)
 
 	return true;
 }
+
+int Settings::GetScreenWidth() const
+{
+	return m_ScreenWidth;
+}
+
+int Settings::GetScreenHeight() const
+{
+	return m_ScreenHeight;
+}
+
+float Settings::GetScreenRatio() const
+{
+	m_ScreenRatio = m_ScreenWidth / (float)m_ScreenHeight;
+	return m_ScreenRatio;
+}

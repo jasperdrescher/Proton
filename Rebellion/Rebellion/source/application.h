@@ -22,10 +22,7 @@ public:
 private:
 	GLFWwindow* window;
 	Scene* scene;
-	Settings* settings;
-	int m_ScreenWidth;
-	int m_ScreenHeight;
-	float m_ScreenRatio;
+	Settings* m_Settings;
 	float m_RunTime;
 	float m_ElapsedTime;
 	float m_DeltaTime;

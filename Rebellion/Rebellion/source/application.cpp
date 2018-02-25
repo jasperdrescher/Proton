@@ -35,7 +35,7 @@ bool App::Initialize()
 		return false;
 	}
 
-	window = glfwCreateWindow(1280, 720, "Rebellion Engine", NULL, NULL);
+	window = glfwCreateWindow(m_Settings->GetScreenWidth, m_Settings->GetScreenHeight, "Rebellion Engine", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
