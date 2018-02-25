@@ -4,8 +4,8 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # Project-specific files
-glfw/
-glew/
+glew-2.1.0/
+glfw-3.2.1.bin.WIN32/
 
 # User-specific files
 *.suo
