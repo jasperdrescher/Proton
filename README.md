@@ -1,6 +1,7 @@
 <a href="https://github.com/Codestones/Rebellion-Engine"><img src="Logo.png" align="right" width="120" height="120" alt="Rebellion" title="Rebellion"></a>
 
 # Rebellion Engine
+A 3D game engine written in C++ and using OpenGL.
 
 ## Table of contents
 
