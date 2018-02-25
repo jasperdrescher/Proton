@@ -91,7 +91,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)dependencies\cereal\include;$(ProjectDir)dependencies\glm;$(ProjectDir)dependencies\imgui;$(ProjectDir)dependencies\glfw-3.2.1.bin.WIN32\include;$(ProjectDir)dependencies\glew-2.1.0\include;$(ProjectDir)dependencies\tinyobjloader;$(ProjectDir)dependencies\stb;$(ProjectDir)dependencies\glew\include;$(ProjectDir)dependencies\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)dependencies\cereal\include;$(ProjectDir)dependencies\cereal;$(ProjectDir)dependencies\glm;$(ProjectDir)dependencies\imgui;$(ProjectDir)dependencies\glfw-3.2.1.bin.WIN32\include;$(ProjectDir)dependencies\glew-2.1.0\include;$(ProjectDir)dependencies\tinyobjloader;$(ProjectDir)dependencies\stb;$(ProjectDir)dependencies\glew\include;$(ProjectDir)dependencies\glfw\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -117,7 +117,8 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)dependencies\cereal\include;$(ProjectDir)dependencies\glm;$(ProjectDir)dependencies\imgui;$(ProjectDir)dependencies\glfw-3.2.1.bin.WIN32\include;$(ProjectDir)dependencies\glew-2.1.0\include;$(ProjectDir)dependencies\tinyobjloader;$(ProjectDir)dependencies\stb;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)dependencies\cereal\include;$(ProjectDir)dependencies\cereal;$(ProjectDir)dependencies\glm;$(ProjectDir)dependencies\imgui;$(ProjectDir)dependencies\glfw-3.2.1.bin.WIN32\include;$(ProjectDir)dependencies\glew-2.1.0\include;$(ProjectDir)dependencies\tinyobjloader;$(ProjectDir)dependencies\stb;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GLEW_STATIC;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -143,14 +144,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dependencies\imgui\imgui.cpp" />
+    <ClCompile Include="dependencies\imgui\imgui_demo.cpp" />
+    <ClCompile Include="dependencies\imgui\imgui_draw.cpp" />
     <ClCompile Include="source\application.cpp" />
+    <ClCompile Include="source\dui.cpp" />
     <ClCompile Include="source\entity.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\scene.cpp" />
     <ClCompile Include="source\settings.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dependencies\imgui\imconfig.h" />
+    <ClInclude Include="dependencies\imgui\imgui.h" />
+    <ClInclude Include="dependencies\imgui\imgui_internal.h" />
     <ClInclude Include="source\application.h" />
+    <ClInclude Include="source\dui.h" />
     <ClInclude Include="source\entity.h" />
     <ClInclude Include="source\scene.h" />
     <ClInclude Include="source\settings.h" />
