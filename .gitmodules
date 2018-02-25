@@ -10,3 +10,6 @@
 [submodule "Rebellion/Rebellion/dependencies/imgui"]
 	path = Rebellion/Rebellion/dependencies/imgui
 	url = https://github.com/ocornut/imgui
+[submodule "Rebellion/Rebellion/dependencies/tinyobjloader"]
+	path = Rebellion/Rebellion/dependencies/tinyobjloader
+	url = https://github.com/syoyo/tinyobjloader
