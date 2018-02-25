@@ -91,7 +91,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)dependencies\cereal\include;$(ProjectDir)dependencies\glm;$(ProjectDir)dependencies\imgui;$(ProjectDir)dependencies\glfw-3.2.1.bin.WIN32\include;$(ProjectDir)dependencies\glew-2.1.0\include;$(ProjectDir)dependencies\stb;$(ProjectDir)dependencies\glew\include;$(ProjectDir)dependencies\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)dependencies\cereal\include;$(ProjectDir)dependencies\glm;$(ProjectDir)dependencies\imgui;$(ProjectDir)dependencies\glfw-3.2.1.bin.WIN32\include;$(ProjectDir)dependencies\glew-2.1.0\include;$(ProjectDir)dependencies\tinyobjloader;$(ProjectDir)dependencies\stb;$(ProjectDir)dependencies\glew\include;$(ProjectDir)dependencies\glfw\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -117,7 +117,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)dependencies\cereal\include;$(ProjectDir)dependencies\glm;$(ProjectDir)dependencies\imgui;$(ProjectDir)dependencies\glfw-3.2.1.bin.WIN32\include;$(ProjectDir)dependencies\glew-2.1.0\include;$(ProjectDir)dependencies\stb</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)dependencies\cereal\include;$(ProjectDir)dependencies\glm;$(ProjectDir)dependencies\imgui;$(ProjectDir)dependencies\glfw-3.2.1.bin.WIN32\include;$(ProjectDir)dependencies\glew-2.1.0\include;$(ProjectDir)dependencies\tinyobjloader;$(ProjectDir)dependencies\stb;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
