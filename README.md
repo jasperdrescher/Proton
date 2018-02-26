@@ -35,6 +35,21 @@ Open the "solution file" and build either Debug or Release for Win32.
     * Textures
         * [ ] PNG
         * [ ] JPG
+    * Audio
+        * [ ] WAV
+        * [ ] MP3
+ * Parts
+    * [ ] Resource manager
+    * [ ] Audio manager
+    * [ ] Scene manager
+    * [ ] Scene graph
+    * [ ] Renderer
+    * [ ] UI
+    * [ ] Settings
+    * [ ] Serialization
+    * [ ] 3D math
+    
+    
 
 ## Dependencies
 Name | Description | License
