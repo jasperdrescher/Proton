@@ -7,6 +7,7 @@ A 3D game engine written in C++ and using OpenGL.
 
 - [Build](#build)
     - [Windows](#windows)
+- [Features](#features)
 - [Dependencies](#dependencies)
 - [License](#license)
 
@@ -16,6 +17,17 @@ In order to build the project you'll need to add the 32-bit [GLFW](http://www.gl
 
 ### Windows
 Open the Solution file and build either Debug or Release for Win32.
+
+## Features
+* File formats
+    * Models
+        * [ ] FBX
+        * [ ] OBJ
+    * Materials
+        * [ ] MTL
+    * Textures
+        * [ ] PNG
+        * [ ] JPG
 
 ## Dependencies
 Name | Description | License
