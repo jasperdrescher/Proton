@@ -41,13 +41,16 @@ Open the "solution file" and build either Debug or Release for Win32.
  * Parts
     * [ ] Resource manager
     * [ ] Audio manager
+    * [ ] Input manager
+    * [ ] Shader manager
     * [ ] Scene manager
     * [ ] Scene graph
     * [ ] Renderer
     * [ ] UI
     * [ ] Settings
     * [ ] Serialization
-    * [ ] 3D math
+    * [ ] Mathematics
+    * [ ] Shaders
     
     
 
