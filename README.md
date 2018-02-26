@@ -6,8 +6,12 @@ A 3D game engine written in C++ and using OpenGL.
 ## Table of contents
 
 - [Build](#build)
-    - [Requirements](#requirements)
     - [Windows](#windows)
+        - [Microsoft Visual Studio](#Microsoft Visual Studio)
+            - [Requirements](#requirements)
+        - [MinGW](#mingw)
+        - [CMake](#cmake)
+    - [Linux](#linux)
 - [Features](#features)
 - [Dependencies](#dependencies)
 - [License](#license)
