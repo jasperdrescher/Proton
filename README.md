@@ -7,7 +7,7 @@ A 3D game engine written in C++ and using OpenGL.
 
 - [Build](#build)
     - [Windows](#windows)
-        - [Microsoft Visual Studio](#Microsoft Visual Studio)
+        - [MVS](#mvs)
             - [Requirements](#requirements)
         - [MinGW](#mingw)
         - [CMake](#cmake)
@@ -21,7 +21,7 @@ Building the project is currently only possible by using Microsoft Visual Studio
 In order to build the project you'll need to add the 32-bit [GLFW](http://www.glfw.org/download.html) and [GLEW](http://glew.sourceforge.net/) binaries to the `dependencies` folder.
 
 ### Windows
-#### Microsoft Visual Studio
+#### MVS
 Open the `Visual Studio Solution` and select either `Debug` or `Release` for `x86`.
 
 ##### Requirements
