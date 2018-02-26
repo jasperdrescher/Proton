@@ -9,7 +9,6 @@ A 3D game engine written in C++ and using OpenGL.
     - [Windows](#windows)
         - [MVS](#mvs)
             - [Requirements](#requirements)
-        - [MinGW](#mingw)
         - [CMake](#cmake)
     - [Linux](#linux)
 - [Features](#features)
@@ -28,9 +27,6 @@ Open the `Visual Studio Solution` and select either `Debug` or `Release` for `x8
 * C++11
 * OpenGL 4.4
 * Microsoft Visual Studio 2010 / Microsoft Visual Studio 2017 with `Desktop Development with C++`
-
-### MinGW
-N/A
 
 #### CMake
 N/A
