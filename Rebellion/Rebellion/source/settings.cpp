@@ -55,9 +55,3 @@ int Settings::GetScreenHeight() const
 {
 	return m_ScreenHeight;
 }
-
-float Settings::GetScreenRatio() const
-{
-	m_ScreenRatio = m_ScreenWidth / (float)m_ScreenHeight;
-	return m_ScreenRatio;
-}

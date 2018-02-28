@@ -14,7 +14,7 @@ int main()
 		return -1;
 	}
 
-	while (!glfwWindowShouldClose(application.GetWindow()))
+	while (application.GetWindowShouldClose())
 	{
 		application.Loop();
 	}

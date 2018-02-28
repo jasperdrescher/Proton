@@ -16,6 +16,7 @@ public:
 	bool Print();
 	bool Loop();
 	bool Shutdown();
+    bool GetWindowShouldClose();
 
 	GLFWwindow* GetWindow() { return window; }
 
@@ -26,4 +27,8 @@ private:
 	float m_RunTime;
 	float m_ElapsedTime;
 	float m_DeltaTime;
+    int m_ScreenWidth = 720;
+    int m_ScreenHeight = 480;
+    float m_ScreenRatio;
+    bool m_WindowShouldClose = true;
 };

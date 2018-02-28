@@ -35,7 +35,7 @@ bool App::Initialize()
 		return false;
 	}
 
-	window = glfwCreateWindow(m_Settings->GetScreenWidth, m_Settings->GetScreenHeight, "Rebellion Engine", NULL, NULL);
+	window = glfwCreateWindow(m_ScreenWidth, m_ScreenHeight, "Rebellion Engine", nullptr, nullptr);
 	if (!window)
 	{
 		glfwTerminate();
@@ -57,7 +57,6 @@ bool App::Initialize()
 	ImGui_ImplGlfwGL3_Init(window, false);
 
 	// Setup style
-	//ImGui::StyleColorsDark();
 	ImGui::StyleColorsClassic();
 
 	return true;
@@ -79,17 +78,8 @@ bool App::Loop()
 	glfwPollEvents();
 	ImGui_ImplGlfwGL3_NewFrame();
 
+    // Window
 	{
-		static float f = 0.0f;
-		static int counter = 0;
-		ImGui::Text("Hello, world!");                           // Display some text (you can use a format string too)
-		ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f    
-
-		if (ImGui::Button("Button"))                            // Buttons return true when clicked (NB: most widgets return true when edited/activated)
-			counter++;
-		ImGui::SameLine();
-		ImGui::Text("counter = %d", counter);
-
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 	}
 
@@ -108,6 +98,11 @@ bool App::Loop()
 	m_DeltaTime = m_ElapsedTime;
 	m_RunTime += m_DeltaTime;
 
+    if (glfwWindowShouldClose(GetWindow()))
+    {
+        m_WindowShouldClose = false;
+    }
+
 	return true;
 }
 
@@ -119,4 +114,9 @@ bool App::Shutdown()
 	glfwTerminate();
 
 	return true;
+}
+
+bool App::GetWindowShouldClose()
+{
+    return m_WindowShouldClose;
 }
