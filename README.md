@@ -1,10 +1,9 @@
 <a href="https://github.com/Codestones/Proton"><img src="https://i.imgur.com/HEwdqod.png" align="right" width="120" height="120" alt="Proton" title="Proton"></a>
 
-# Proton
+# Proton <img src="https://img.shields.io/badge/version-0.0-blue.svg">
 A 3D game engine written in C++ and using OpenGL.
 
 ## Table of contents
-
 - [Build](#build)
     - [Windows](#windows)
         - [MVS](#mvs)
@@ -25,7 +24,7 @@ Open the `Visual Studio Solution` and select either `Debug` or `Release` for `x8
 
 ##### Requirements
 * C++11
-* OpenGL 4.4
+* OpenGL 4
 * Microsoft Visual Studio 2010 / Microsoft Visual Studio 2017 with `Desktop Development with C++`
 
 #### CMake
