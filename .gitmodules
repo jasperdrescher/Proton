@@ -1,15 +1,15 @@
-[submodule "Rebellion/Rebellion/dependencies/cereal"]
-	path = Rebellion/Rebellion/dependencies/cereal
-	url = https://github.com/USCiLab/cereal
-[submodule "Rebellion/Rebellion/dependencies/glm"]
-	path = Rebellion/Rebellion/dependencies/glm
+[submodule "Proton/Proton/dependencies/glm"]
+	path = Proton/Proton/dependencies/glm
 	url = https://github.com/g-truc/glm
-[submodule "Rebellion/Rebellion/dependencies/stb"]
-	path = Rebellion/Rebellion/dependencies/stb
-	url = https://github.com/nothings/stb
-[submodule "Rebellion/Rebellion/dependencies/imgui"]
-	path = Rebellion/Rebellion/dependencies/imgui
-	url = https://github.com/ocornut/imgui
-[submodule "Rebellion/Rebellion/dependencies/tinyobjloader"]
-	path = Rebellion/Rebellion/dependencies/tinyobjloader
+[submodule "Proton/Proton/dependencies/cereal"]
+	path = Proton/Proton/dependencies/cereal
+	url = https://github.com/USCiLab/cereal
+[submodule "Proton/Proton/dependencies/tinyobjloader"]
+	path = Proton/Proton/dependencies/tinyobjloader
 	url = https://github.com/syoyo/tinyobjloader
+[submodule "Proton/Proton/dependencies/stb"]
+	path = Proton/Proton/dependencies/stb
+	url = https://github.com/nothings/stb
+[submodule "Proton/Proton/dependencies/imgui"]
+	path = Proton/Proton/dependencies/imgui
+	url = https://github.com/ocornut/imgui
