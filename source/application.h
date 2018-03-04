@@ -1,10 +1,10 @@
 #pragma once
 
-#include <GL\glew.h>
+#include <glad\glad.h>
 #include <GLFW\glfw3.h>
 
-#include "scene.h"
-#include "settings.h"
+//#include "scene.h"
+//#include "settings.h"
 
 class App
 {
@@ -22,8 +22,8 @@ public:
 
 private:
 	GLFWwindow* window;
-	Scene* scene;
-	Settings* m_Settings;
+	//Scene* scene;
+	//Settings* m_Settings;
 	float m_RunTime;
 	float m_ElapsedTime;
 	float m_DeltaTime;

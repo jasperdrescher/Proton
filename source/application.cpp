@@ -46,10 +46,10 @@ bool App::Initialize()
 	glfwMakeContextCurrent(window);
 	//glfwSwapInterval(1);
 
-	if (glewInit() != GLEW_OK)
-	{
-		return false;
-	}
+    if (!gladLoadGL())
+    {
+        return false;
+    }
 
 	// Setup ImGui binding
 	ImGui::CreateContext();
@@ -66,8 +66,9 @@ bool App::Print()
 {
 	std::cout << "Framework initialization succesful..." << std::endl;
 	std::cout << "GLFW version " << glfwGetVersionString() << std::endl;
-	std::cout << "GLEW version " << glewGetString(GLEW_VERSION) << std::endl;
+	std::cout << "GLEW version " << GLVersion.major << "." << GLVersion.minor << std::endl;
 	std::cout << "OpenGL version " << glGetString(GL_VERSION) << std::endl;
+    std::cout << "GLSL version " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
 
 	return true;
 }
