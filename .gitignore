@@ -17,6 +17,7 @@ glfw-3.2.1.bin.WIN32/
 *.userprefs
 
 # Build results
+[Bb]uild/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
