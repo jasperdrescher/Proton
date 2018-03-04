@@ -1,0 +1,45 @@
+dist: trusty
+
+sudo: required
+
+notifications:
+  email: false
+
+language: cpp
+
+compiler:
+- gcc
+
+os:
+- linux
+
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+            - george-edison55-precise-backports
+        packages:
+            - gcc-6
+            - cmake-data
+            - cmake
+            - libxrandr-dev
+            - libxinerama-dev
+            - libxcursor-dev
+            - libxi-dev
+
+branches:
+  only:
+  - master
+
+env:
+  global:
+  - LANG="en_US.UTF-8"
+  
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+  
+script: 
+  - make
+
