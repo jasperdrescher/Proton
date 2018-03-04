@@ -35,7 +35,7 @@ bool App::Initialize()
 		return false;
 	}
 
-	window = glfwCreateWindow(m_ScreenWidth, m_ScreenHeight, "Rebellion Engine", nullptr, nullptr);
+	window = glfwCreateWindow(m_ScreenWidth, m_ScreenHeight, "Proton Engine", nullptr, nullptr);
 	if (!window)
 	{
 		glfwTerminate();
