@@ -1,7 +1,7 @@
 <a href="https://github.com/Codestones/Proton"><img src="https://i.imgur.com/HEwdqod.png" align="right" width="120" height="120" alt="Proton" title="Proton"></a>
 
 # Proton <img src="https://img.shields.io/badge/version-0.0-blue.svg" alt="version" title="version"> <img src="https://travis-ci.org/Codestones/Proton.svg?branch=master" alt="build status" title="build status">
-A 3D game engine written in C++ and using OpenGL.
+A cross-platform game engine written in C++ using OpenGL.
 
 ## Table of contents
 - [Build](#build)
