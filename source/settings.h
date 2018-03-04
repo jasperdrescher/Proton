@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <cereal\cereal.hpp>
+#include <cereal/cereal.hpp>
 
 struct SettingsStruct
 {
