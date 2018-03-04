@@ -5,33 +5,24 @@ A 3D game engine written in C++ and using OpenGL.
 
 ## Table of contents
 - [Build](#build)
-    - [Windows](#windows)
-        - [MVS](#mvs)
-            - [Requirements](#requirements)
-        - [CMake](#cmake)
-    - [Linux](#linux)
+    - [CMake](#cmake)
+        - [Requirements](#requirements)
 - [Features](#features)
 - [Dependencies](#dependencies)
 - [License](#license)
 
 ## Build
-Building the project is currently only possible by using Microsoft Visual Studio (2010 or higher).
-In order to build the project you'll need to add the 32-bit [GLFW](http://www.glfw.org/download.html) and [GLEW](http://glew.sourceforge.net/) binaries to the `dependencies` folder.
+Building this project is made easy using CMake. The project is cross-platform compatible and all dependencies are cloned by Git.
 
-### Windows
-#### MVS
-Open the `Visual Studio Solution` and select either `Debug` or `Release` for `x86`.
+### CMake
+To build the project locally you'll need to clone the repository. Depending on your OS you can either use cmake-gui or CMake to generate the project for you. The only prerequisite is [Python](https://www.python.org/), since GLAD uses Python scripts.
+It is recommended to build into a `build` folder outside of the source.
 
-##### Requirements
+#### Requirements
 * C++11
 * OpenGL 4
-* Microsoft Visual Studio 2010 / Microsoft Visual Studio 2017 with `Desktop Development with C++`
-
-#### CMake
-N/A
-
-### Linux
-N/A
+* Python 2.7
+* CMake 3.1
 
 ## Features
 * File formats
@@ -71,7 +62,7 @@ Name | Description | License
 [GLM](https://github.com/g-truc/glm) | OpenGL math library | [MIT](https://github.com/g-truc/glm/blob/master/manual.md#section0)
 [IMGUI](https://github.com/ocornut/imgui) | Bloat-free immediate mode graphical user interface | [MIT](https://github.com/ocornut/imgui/blob/master/LICENSE.txt)
 [GLFW](https://github.com/glfw/glfw) | Multi-platform library for OpenGL, OpenGL ES, Vulkan, window and input | [ZLIB](https://github.com/glfw/glfw/blob/master/LICENSE.md)
-[GLEW](https://github.com/nigels-com/glew) | OpenGL extension wrangler library | [BSD](https://github.com/nigels-com/glew/blob/master/LICENSE.txt), [MESA-3D](http://glew.sourceforge.net/mesa.txt), [Khronos](http://glew.sourceforge.net/khronos.txt)
+[GLAD](https://github.com/Dav1dde/glad) | Multi-Language GL Loader-Generator | [MIT](https://github.com/Dav1dde/glad/blob/master/LICENSE)
 
 ## License
 This project is licensed under the [MIT License](https://github.com/Codestones/Rebellion-Engine/blob/master/LICENSE.md).
