@@ -2,6 +2,8 @@
 #include "imgui.h"
 #include "dui.h"
 
+#include <glm/gtc/quaternion.hpp>
+
 #include <iostream>
 #include <chrono>
 
@@ -66,7 +68,6 @@ bool App::Print()
 {
 	std::cout << "Framework initialization succesful..." << std::endl;
 	std::cout << "GLFW version " << glfwGetVersionString() << std::endl;
-	std::cout << "GLEW version " << GLVersion.major << "." << GLVersion.minor << std::endl;
 	std::cout << "OpenGL version " << glGetString(GL_VERSION) << std::endl;
     std::cout << "GLSL version " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
 

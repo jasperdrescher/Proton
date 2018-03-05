@@ -3,8 +3,6 @@
 #include <string>
 #include <vector>
 
-class Entity;
-
 class Scene
 {
 public:
@@ -16,5 +14,4 @@ public:
 	bool Save(std::string a_Filepath);
 
 private:
-	std::vector<Entity> m_Entities;
 };

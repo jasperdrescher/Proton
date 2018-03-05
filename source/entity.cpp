@@ -1,6 +1,6 @@
 #include "entity.h"
 
-Entity::Entity() : m_Name("")
+Entity::Entity() : m_Name(""), m_Tag("")
 {
 }
 
@@ -8,20 +8,27 @@ Entity::Entity(const std::string & a_Name) : m_Name(a_Name)
 {
 }
 
+Entity::Entity(const std::string & a_Name, const std::string& a_Tag) : m_Name(a_Name), m_Tag(a_Tag)
+{
+}
+
+Entity::Entity(const Entity & a_Entity)
+{
+    m_Name = a_Entity.m_Name;
+}
+
 Entity::~Entity()
 {
 }
 
-void Entity::Update(float a_DeltaTime)
+Entity & Entity::operator=(const Entity & a_Entity)
 {
-}
+    if (this != &a_Entity)
+    {
+        m_Name = a_Entity.GetName();
+    }
 
-void Entity::Render()
-{
-}
-
-void Entity::Destroy()
-{
+    return *this;
 }
 
 const std::string & Entity::GetName() const
@@ -46,17 +53,24 @@ bool Entity::CompareName(const std::string & a_Name)
 	}
 }
 
-Entity::Entity(const Entity & a_Entity)
+const std::string & Entity::GetTag() const
 {
-	m_Name = a_Entity.m_Name;
+    return m_Tag;
 }
 
-Entity & Entity::operator=(const Entity & a_Entity)
+void Entity::SetTag(const std::string & a_Tag)
 {
-	if (this != &a_Entity)
-	{
-		m_Name = a_Entity.GetName();
-	}
+    m_Tag = a_Tag;
+}
 
-	return *this;
+bool Entity::CompareTag(const std::string & a_Tag)
+{
+    if (m_Tag == a_Tag)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }

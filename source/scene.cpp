@@ -1,13 +1,10 @@
 #include "scene.h"
-#include "entity.h"
 #include <cereal/archives/xml.hpp>
 
 #include <fstream>
 
 Scene::Scene()
 {
-	Entity entity;
-	m_Entities.push_back(entity);
 }
 
 Scene::~Scene()
