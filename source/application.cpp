@@ -2,8 +2,6 @@
 #include "imgui.h"
 #include "dui.h"
 
-#include <glm/gtc/quaternion.hpp>
-
 #include <iostream>
 #include <chrono>
 

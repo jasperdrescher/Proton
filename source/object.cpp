@@ -29,7 +29,26 @@ Object & Object::operator=(const Object & a_Object)
     return *this;
 }
 
+Object & Object::operator=(Object && a_Object)
+{
+    if (this != &a_Object)
+    {
+        this->SetName(a_Object.GetName());
+        this->SetTag(a_Object.GetTag());
+    }
+
+    return *this;
+}
+
 Object::~Object()
+{
+}
+
+void Object::Update(float a_DeltaTime)
+{
+}
+
+void Object::Render()
 {
 }
 

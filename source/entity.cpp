@@ -26,6 +26,18 @@ Entity & Entity::operator=(const Entity & a_Entity)
     if (this != &a_Entity)
     {
         m_Name = a_Entity.GetName();
+        m_Tag = a_Entity.GetTag();
+    }
+
+    return *this;
+}
+
+Entity & Entity::operator=(Entity && a_Entity)
+{
+    if (this != &a_Entity)
+    {
+        m_Name = a_Entity.GetName();
+        m_Tag = a_Entity.GetTag();
     }
 
     return *this;

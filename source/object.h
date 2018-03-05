@@ -10,8 +10,11 @@ public:
     Object(const std::string& a_Name, const std::string& a_Tag);
     Object(const Object& a_Object);
     Object& operator=(const Object& a_Object);
+    Object& operator=(Object&& a_Object);
     virtual ~Object(void);
 
+    void Update(float a_DeltaTime);
+    void Render();
     void Destroy();
 
     Object* GetParent() const;

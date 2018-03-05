@@ -11,6 +11,7 @@ public:
     Entity(const std::string& a_Name, const std::string& a_Tag);
 	Entity(const Entity& a_Entity);
 	Entity& operator=(const Entity& a_Entity);
+    Entity& operator=(Entity&& a_Entity);
 	virtual ~Entity();
 
 	virtual void Update(float a_DeltaTime) = 0;
