@@ -15,7 +15,7 @@ set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/source")
 set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/dependencies")
 
 # Executable definition and properties
-file(GLOB SRC
+file(GLOB_RECURSE SRC
     "${SRC_DIR}/*.h"
     "${SRC_DIR}/*.cpp"
 )
