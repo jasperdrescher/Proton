@@ -1,4 +1,4 @@
-#include "Shader_manager.h"
+#include "ShaderManager.h"
 
 namespace Proton
 {
