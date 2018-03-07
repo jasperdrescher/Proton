@@ -31,7 +31,7 @@ namespace Proton
         void RemoveChild(const std::string & a_Name);
 
         const std::vector<Object*>& GetChildren() const;
-        Transform * GetTransform() const;
+        Transform* GetTransform() const;
         Object* GetParent() const;
 
     protected:
@@ -43,6 +43,5 @@ namespace Proton
         std::vector<Object*> m_pChildren;
 
     private:
-        glm::vec3 m_Position;
     };
 }
