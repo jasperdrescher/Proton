@@ -15,16 +15,22 @@ set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/source")
 set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/dependencies")
 
 # Executable definition and properties
-file(GLOB SOURCES
+file(GLOB SRC
     "${SRC_DIR}/*.h"
     "${SRC_DIR}/*.cpp"
+)
+
+file(GLOB IMGUI
 	"${LIB_DIR}/imgui/imgui_internal.h"
 	"${LIB_DIR}/imgui/imgui.h"
 	"${LIB_DIR}/imgui/imgui.cpp"
 	"${LIB_DIR}/imgui/imconfig.h"
 	"${LIB_DIR}/imgui/imgui_draw.cpp"
 )
-add_executable(Proton "${SOURCES}")
+
+add_executable(Proton ${SRC} ${IMGUI})
+
+source_group("imgui" FILES ${IMGUI})
 
 # GLFW
 set(GLFW_DIR "${LIB_DIR}/glfw")
