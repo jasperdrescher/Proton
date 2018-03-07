@@ -1,8 +1,8 @@
-#include "application.h"
+#include "Application.h"
 
 int main()
 {
-	App application;
+	Proton::App application;
 
 	if (!application.Initialize())
 	{
