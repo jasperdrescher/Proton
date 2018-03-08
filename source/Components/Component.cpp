@@ -1,5 +1,5 @@
 #include "Component.h"
-#include "../object.h"
+#include "../Object.h"
 
 namespace Proton
 {
