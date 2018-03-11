@@ -8,7 +8,7 @@ namespace Proton
     {
     public:
         Component();
-        Component(Object* parent);
+        Component(Object* a_ParentObject);
         Component(const Component& a_Component);
         Component(Component&& a_Component);
         Component& operator=(const Component& a_Component);

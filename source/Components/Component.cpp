@@ -7,19 +7,19 @@ namespace Proton
     {
     }
 
-    Proton::Component::Component(Object * parent)
+    Proton::Component::Component(Object* a_ParentObject)
     {
     }
 
-    Proton::Component::Component(const Component & a_Component)
+    Proton::Component::Component(const Component& a_Component)
     {
     }
 
-    Proton::Component::Component(Component && a_Component)
+    Proton::Component::Component(Component&& a_Component)
     {
     }
 
-    Component& Proton::Component::operator=(const Component & a_Component)
+    Component& Proton::Component::operator=(const Component& a_Component)
     {
         if (this != &a_Component)
         {
@@ -32,7 +32,7 @@ namespace Proton
         return *this;
     }
 
-    Component& Proton::Component::operator=(Component && a_Component)
+    Component& Proton::Component::operator=(Component&& a_Component)
     {
         if (this != &a_Component)
         {
@@ -59,7 +59,7 @@ namespace Proton
         return nullptr;
     }
 
-    void Component::SetParent(Object * a_pParentObject)
+    void Component::SetParent(Object* a_pParentObject)
     {
     }
 
