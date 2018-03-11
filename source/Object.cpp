@@ -59,6 +59,52 @@ namespace Proton
     {
     }
 
+	void Object::AddComponent(Component * a_pComponent)
+	{
+		for (int i = 0; i < m_pComponents.size(); i++)
+		{
+			if (typeid(*m_pComponents[i]) == typeid(*a_pComponent))
+			{
+				break;
+			}
+		}
+
+		a_pComponent->SetParent(this);
+
+		if (!a_pComponent->IsInitialized())
+		{
+			a_pComponent->Initialize();
+		}
+
+		m_pComponents.push_back(a_pComponent);
+	}
+
+	void Object::RemoveComponent(Component * a_pComponent)
+	{
+		auto it = std::find(m_pComponents.begin(), m_pComponents.end(), a_pComponent);
+		bool exists = it != m_pComponents.end();
+		if (exists)
+		{
+			a_pComponent->Destroy();
+		}
+	}
+
+	void Object::AddChild(Object * a_pObject)
+	{
+		a_pObject->m_pParentObject = this;
+		if (a_pObject->GetName() == GetName())
+		{
+			// error
+		}
+
+		if (!a_pObject->m_IsInitialized)
+		{
+
+		}
+
+		m_pChildren.push_back(a_pObject);
+	}
+
     Object* Object::GetParent() const
     {
         return (m_pParentObject);

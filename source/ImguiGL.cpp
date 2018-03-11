@@ -1,5 +1,5 @@
 #include "imgui.h"
-#include "DUI.h"
+#include "ImguiGL.h"
 
 // GL3W/GLFW
 #include <glad/glad.h>
