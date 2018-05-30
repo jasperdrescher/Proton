@@ -20,7 +20,6 @@ addons:
             - george-edison55-precise-backports
         packages:
             - gcc-4.8
-            - g++-4.8
             - cmake-data
             - cmake
             - libxrandr-dev
