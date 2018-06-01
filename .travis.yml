@@ -19,7 +19,7 @@ addons:
             - ubuntu-toolchain-r-test
             - george-edison55-precise-backports
         packages:
-            - gcc-6
+            - gcc-4.8
             - cmake-data
             - cmake
             - libxrandr-dev
@@ -42,4 +42,3 @@ before_script:
   
 script: 
   - make
-
