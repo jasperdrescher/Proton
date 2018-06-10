@@ -1,6 +1,6 @@
 #include "Application.h"
 #include "imgui.h"
-#include "ImguiGL.h"
+#include "imguiGL.h"
 
 #include <iostream>
 #include <chrono>
