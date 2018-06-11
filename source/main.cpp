@@ -1,25 +1,25 @@
-#include "Application.h"
+#include "Engine.h"
 
 int main()
 {
-	Proton::App application;
+	Proton::Engine engine;
 
-	if (!application.Initialize())
+	if (!engine.Initialize())
 	{
 		return -1;
 	}
 	
-	if (!application.Print())
+	if (!engine.Print())
 	{
 		return -1;
 	}
 
-	while (application.GetWindowShouldClose())
+	while (engine.GetWindowShouldClose())
 	{
-		application.Loop();
+		engine.Loop();
 	}
 
-	application.Shutdown();
+	engine.Shutdown();
 
 	return 0;
 }

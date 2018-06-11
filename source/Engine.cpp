@@ -1,4 +1,4 @@
-#include "Application.h"
+#include "Engine.h"
 #include "imgui.h"
 #include "imguiGL.h"
 
@@ -7,11 +7,11 @@
 
 namespace Proton
 {
-    App::App()
+	Engine::Engine()
     {
     }
 
-    App::~App()
+	Engine::~Engine()
     {
     }
 
@@ -28,7 +28,7 @@ namespace Proton
         }
     }
 
-    bool App::Initialize()
+    bool Engine::Initialize()
     {
         glfwSetErrorCallback(ErrorCallback);
 
@@ -64,7 +64,7 @@ namespace Proton
         return true;
     }
 
-    bool App::Print()
+    bool Engine::Print()
     {
         std::cout << "Framework initialization succesful..." << std::endl;
         std::cout << "GLFW version " << glfwGetVersionString() << std::endl;
@@ -74,7 +74,7 @@ namespace Proton
         return true;
     }
 
-    bool App::Loop()
+    bool Engine::Loop()
     {
         auto start = std::chrono::system_clock::now();
         glfwPollEvents();
@@ -108,7 +108,7 @@ namespace Proton
         return true;
     }
 
-    bool App::Shutdown()
+    bool Engine::Shutdown()
     {
         ImGui_ImplGlfwGL3_Shutdown();
         ImGui::DestroyContext();
@@ -118,7 +118,7 @@ namespace Proton
         return true;
     }
 
-    bool App::GetWindowShouldClose()
+    bool Engine::GetWindowShouldClose()
     {
         return m_WindowShouldClose;
     }

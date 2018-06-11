@@ -8,11 +8,11 @@
 
 namespace Proton
 {
-    class App
+    class Engine
     {
     public:
-        App();
-        ~App();
+		Engine();
+        ~Engine();
 
         bool Initialize();
         bool Print();
