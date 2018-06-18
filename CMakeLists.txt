@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.1)
 # Generated project name
 project(Proton)
 
-# C++ standard (C++11)
-set(CMAKE_CXX_STANDARD 11)
+# C++ standard (C++17)
+set(CMAKE_CXX_STANDARD 17)
 
 # Add filters/folders for the generated projects
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
