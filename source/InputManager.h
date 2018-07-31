@@ -4,7 +4,7 @@
 
 class Controller;
 class Keyboard;
-class Mouse;
+class Cursor;
 
 class InputManager
 {
@@ -15,5 +15,5 @@ public:
 private:
 	std::vector<Controller*> m_Controllers;
 	Keyboard* m_Keyboards;
-	Mouse* m_Mouse;
+	Cursor* m_Cursor;
 };

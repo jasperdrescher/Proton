@@ -1,8 +1,7 @@
 #include "InputManager.h"
-
 #include "Controller.h"
 #include "Keyboard.h"
-#include "Mouse.h"
+#include "Cursor.h"
 
 InputManager::InputManager()
 {
