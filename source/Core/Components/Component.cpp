@@ -3,36 +3,23 @@
 
 namespace Proton
 {
-    Proton::Component::Component()
+    Component::Component()
     {
     }
 
-    Proton::Component::Component(Object* a_ParentObject)
+    Component::Component(Object* a_ParentObject)
     {
     }
 
-    Proton::Component::Component(const Component& a_Component)
+    Component::Component(const Component& a_Component)
     {
     }
 
-    Proton::Component::Component(Component&& a_Component)
+    Component::Component(Component&& a_Component)
     {
     }
 
-    Component& Proton::Component::operator=(const Component& a_Component)
-    {
-        if (this != &a_Component)
-        {
-            m_pParentObject = a_Component.GetParent();
-            m_IsInitialized = a_Component.IsInitialized();
-            m_IsEnabled = a_Component.IsEnabled();
-            m_IsVisible = a_Component.IsVisible();
-        }
-
-        return *this;
-    }
-
-    Component& Proton::Component::operator=(Component&& a_Component)
+    Component& Component::operator=(const Component& a_Component)
     {
         if (this != &a_Component)
         {
@@ -45,7 +32,20 @@ namespace Proton
         return *this;
     }
 
-    Proton::Component::~Component()
+    Component& Component::operator=(Component&& a_Component)
+    {
+        if (this != &a_Component)
+        {
+            m_pParentObject = a_Component.GetParent();
+            m_IsInitialized = a_Component.IsInitialized();
+            m_IsEnabled = a_Component.IsEnabled();
+            m_IsVisible = a_Component.IsVisible();
+        }
+
+        return *this;
+    }
+
+    Component::~Component()
     {
     }
 

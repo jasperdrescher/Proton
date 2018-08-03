@@ -1,9 +1,14 @@
 #include "Engine.h"
-#include "imgui.h"
-#include "imguiGL.h"
+#include "Systems/Editor.h"
+#include "Systems/Scene.h"
+#include "Systems/Settings.h"
 
 #include <iostream>
 #include <chrono>
+#include <algorithm>
+
+// Singleton engine instnace
+Proton::Engine ProtonEngine;
 
 namespace Proton
 {
@@ -20,11 +25,11 @@ namespace Proton
         std::cout << "Error! " << stderr << description << std::endl;
     }
 
-    static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+    static void KeyCallback(GLFWwindow* m_Window, int key, int scancode, int action, int mods)
     {
         if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         {
-            glfwSetWindowShouldClose(window, GLFW_TRUE);
+            glfwSetWindowShouldClose(m_Window, GLFW_TRUE);
         }
     }
 
@@ -37,15 +42,15 @@ namespace Proton
             return false;
         }
 
-        window = glfwCreateWindow(m_ScreenWidth, m_ScreenHeight, "Proton Engine", nullptr, nullptr);
-        if (!window)
+        m_Window = glfwCreateWindow(m_ScreenWidth, m_ScreenHeight, "Proton Engine", nullptr, nullptr);
+        if (!m_Window)
         {
             glfwTerminate();
             return false;
         }
 
-        glfwSetKeyCallback(window, KeyCallback);
-        glfwMakeContextCurrent(window);
+        glfwSetKeyCallback(m_Window, KeyCallback);
+        glfwMakeContextCurrent(m_Window);
         //glfwSwapInterval(1);
 
         if (!gladLoadGL())
@@ -53,13 +58,10 @@ namespace Proton
             return false;
         }
 
-        // Setup ImGui binding
-        ImGui::CreateContext();
-        ImGuiIO& io = ImGui::GetIO(); (void)io;
-        ImGui_ImplGlfwGL3_Init(window, false);
-
-        // Setup style
-        ImGui::StyleColorsClassic();
+        // Initialize the editor
+        m_Editor = new Editor();
+        m_Editor->SetWindow(m_Window);
+        m_Editor->Initialize();
 
         return true;
     }
@@ -78,21 +80,18 @@ namespace Proton
     {
         auto start = std::chrono::system_clock::now();
         glfwPollEvents();
-        ImGui_ImplGlfwGL3_NewFrame();
 
-        // Window
-        {
-            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-        }
+        m_Editor->Update(m_DeltaTime);
 
-        glfwGetFramebufferSize(window, &m_ScreenWidth, &m_ScreenHeight);
+        glfwGetFramebufferSize(m_Window, &m_ScreenWidth, &m_ScreenHeight);
         m_ScreenRatio = m_ScreenWidth / (float)m_ScreenHeight;
         glViewport(0, 0, m_ScreenWidth, m_ScreenHeight);
         glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        ImGui::Render();
-        ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
-        glfwSwapBuffers(window);
+        
+        m_Editor->Render();
+
+        glfwSwapBuffers(m_Window);
 
         auto end = std::chrono::system_clock::now();
         std::chrono::duration<float> elapsed_seconds = end - start;
@@ -110,9 +109,8 @@ namespace Proton
 
     bool Engine::Shutdown()
     {
-        ImGui_ImplGlfwGL3_Shutdown();
-        ImGui::DestroyContext();
-        glfwDestroyWindow(window);
+        m_Editor->Destroy();
+        glfwDestroyWindow(m_Window);
         glfwTerminate();
 
         return true;
@@ -122,4 +120,23 @@ namespace Proton
     {
         return m_WindowShouldClose;
     }
+
+    // Systems
+    Editor* Engine::EditorInstance() { return m_Editor; }
+    Scene* Engine::SceneInstance() { return m_Scene; }
+    Settings* Engine::SettingsInstance() { return m_Settings; }
+}
+
+Proton::Editor* EditorInstance()
+{
+    return ProtonEngine.EditorInstance();
+}
+
+Proton::Scene* SceneInstance()
+{
+    return ProtonEngine.SceneInstance();
+}
+Proton::Settings* SettingsInstance()
+{
+    return ProtonEngine.SettingsInstance();
 }

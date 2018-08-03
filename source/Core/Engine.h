@@ -3,11 +3,13 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "Scene.h"
-#include "Settings.h"
-
 namespace Proton
 {
+    // Forward declarations of systems
+    class Editor;
+    class Scene;
+    class Settings;
+
     class Engine
     {
     public:
@@ -20,12 +22,19 @@ namespace Proton
         bool Shutdown();
         bool GetWindowShouldClose();
 
-        GLFWwindow* GetWindow() { return window; }
+        GLFWwindow* GetWindow() { return m_Window; }
+
+        Editor* EditorInstance();
+        Scene* SceneInstance();
+        Settings* SettingsInstance();
 
     private:
-        GLFWwindow * window;
-        Scene* scene;
+        // Member systems
+        Editor* m_Editor;
+        Scene* m_Scene;
         Settings* m_Settings;
+
+        GLFWwindow* m_Window;
         float m_RunTime;
         float m_ElapsedTime;
         float m_DeltaTime;
@@ -35,3 +44,8 @@ namespace Proton
         bool m_WindowShouldClose = true;
     };
 }
+
+// Methods to get systems globally
+extern Proton::Editor* EditorInstance();
+extern Proton::Scene* SceneInstance();
+extern Proton::Settings* SettingsInstance();
