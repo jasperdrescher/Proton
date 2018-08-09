@@ -65,5 +65,5 @@ Name | Description | License
 [GLAD](https://github.com/Dav1dde/glad) | Multi-Language GL Loader-Generator | [MIT](https://github.com/Dav1dde/glad/blob/master/LICENSE)
 
 ## License
-This project is licensed under the [MIT License](https://github.com/Codestones/Proton/blob/master/LICENSE.md).
+This project is licensed under the [MIT License](https://github.com/FarawayStudios/Proton/blob/master/LICENSE.md).
 Licenses of tools and dependencies are not included and may vary.
