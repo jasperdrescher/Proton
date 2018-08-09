@@ -38,10 +38,16 @@ namespace Proton
         {
             if (ImGui::BeginMenu("Debug"))
             {
-                ShowDebugMenu();
+                ImGui::MenuItem("Profiler", NULL, &m_ShowProfiler);
+
                 ImGui::EndMenu();
             }
             ImGui::EndMainMenuBar();
+        }
+
+        if (m_ShowProfiler)
+        {
+            ShowProfiler();
         }
     }
 
@@ -62,9 +68,8 @@ namespace Proton
         m_Window = a_Window;
     }
 
-    void Editor::ShowDebugMenu()
+    void Editor::ShowProfiler()
     {
-        ImGui::BeginMenu();
         ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
         ImGui::Text("Delta time: %.3f", 1.0000f);
 
@@ -76,6 +81,5 @@ namespace Proton
         m_FrameTimes[4] = ImGui::GetIO().Framerate;
 
         ImGui::PlotLines("Frame times", m_FrameTimes, IM_ARRAYSIZE(m_FrameTimes));
-        ImGui::EndMenu();
     }
 }

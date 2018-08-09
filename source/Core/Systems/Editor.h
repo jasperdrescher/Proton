@@ -21,10 +21,11 @@ namespace Proton
         void SetWindow(GLFWwindow* a_Window);
 
     private:
-        void ShowDebugMenu();
+        void ShowProfiler();
 
     private:
         GLFWwindow * m_Window;
         float m_FrameTimes[5];
+        bool m_ShowProfiler = false;
     };
 }
