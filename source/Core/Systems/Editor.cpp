@@ -33,19 +33,15 @@ namespace Proton
     {
         ImGui_ImplGlfwGL3_NewFrame();
 
-        // Window
+        // Menu
+        if (ImGui::BeginMainMenuBar())
         {
-            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-            ImGui::Text("Delta time: %.3f", a_DeltaTime);
-
-            for (int i = 0; i < 4; i++)
+            if (ImGui::BeginMenu("Debug"))
             {
-                m_FrameTimes[i] = m_FrameTimes[i + 1]; // Move all element to the left except first one
+                ShowDebugMenu();
+                ImGui::EndMenu();
             }
-
-            m_FrameTimes[4] = ImGui::GetIO().Framerate;
-
-            ImGui::PlotLines("Frame times", m_FrameTimes, IM_ARRAYSIZE(m_FrameTimes));
+            ImGui::EndMainMenuBar();
         }
     }
 
@@ -64,5 +60,22 @@ namespace Proton
     void Editor::SetWindow(GLFWwindow* a_Window)
     {
         m_Window = a_Window;
+    }
+
+    void Editor::ShowDebugMenu()
+    {
+        ImGui::BeginMenu();
+        ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+        ImGui::Text("Delta time: %.3f", 1.0000f);
+
+        for (int i = 0; i < 4; i++)
+        {
+            m_FrameTimes[i] = m_FrameTimes[i + 1]; // Move all element to the left except first one
+        }
+
+        m_FrameTimes[4] = ImGui::GetIO().Framerate;
+
+        ImGui::PlotLines("Frame times", m_FrameTimes, IM_ARRAYSIZE(m_FrameTimes));
+        ImGui::EndMenu();
     }
 }
