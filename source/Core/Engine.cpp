@@ -13,6 +13,17 @@ Proton::Engine ProtonEngine;
 namespace Proton
 {
 	Engine::Engine()
+		: myEditor(nullptr)
+		, myScene(nullptr)
+		, mySettings(nullptr)
+		, myWindow(nullptr)
+		, myScreenHeight(720)
+		, myScreenWidth(480)
+		, myScreenRatio(0.0f)
+		, myDeltaTime(0.0f)
+		, myRunTime(0.0f)
+		, myElapsedTime(0.0f)
+		, myWindowShouldClose(false)
     {
     }
 
@@ -20,16 +31,16 @@ namespace Proton
     {
     }
 
-    static void ErrorCallback(int error, const char* description)
+    static void ErrorCallback(int anError, const char* aDescription)
     {
-        std::cout << "Error! " << stderr << description << std::endl;
+        std::cout << "Error: " << anError << stderr << aDescription << std::endl;
     }
 
-    static void KeyCallback(GLFWwindow* m_Window, int key, int scancode, int action, int mods)
+    static void KeyCallback(GLFWwindow* aWindow, int aKey, int aScancode, int anAction, int aMode)
     {
-        if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        if (aKey == GLFW_KEY_ESCAPE && anAction == GLFW_PRESS)
         {
-            glfwSetWindowShouldClose(m_Window, GLFW_TRUE);
+            glfwSetWindowShouldClose(aWindow, GLFW_TRUE);
         }
     }
 
@@ -39,29 +50,39 @@ namespace Proton
 
         if (!glfwInit())
         {
+			std::cout << "Error: " << "Failed to initialize GLFW" << std::endl;
             return false;
         }
 
-        m_Window = glfwCreateWindow(m_ScreenWidth, m_ScreenHeight, "Proton Engine", nullptr, nullptr);
-        if (!m_Window)
+		glfwWindowHint(GLFW_SAMPLES, 4);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+        myWindow = glfwCreateWindow(myScreenWidth, myScreenHeight, "Proton Engine", nullptr, nullptr);
+        if (!myWindow)
         {
+			std::cout << "Error: " << "Failed to create a GLFW window" << std::endl;
             glfwTerminate();
             return false;
         }
 
-        glfwSetKeyCallback(m_Window, KeyCallback);
-        glfwMakeContextCurrent(m_Window);
-        //glfwSwapInterval(1);
+		glfwMakeContextCurrent(myWindow);
+        glfwSetKeyCallback(myWindow, KeyCallback);
+		glfwSetInputMode(myWindow, GLFW_STICKY_KEYS, GL_TRUE);
+        glfwSwapInterval(1);
 
         if (!gladLoadGL())
         {
+			std::cout << "Error: " << "Failed to initialize GLAD context" << std::endl;
             return false;
         }
 
         // Initialize the editor
-        m_Editor = new Editor();
-        m_Editor->SetWindow(m_Window);
-        m_Editor->Initialize();
+        myEditor = new Editor();
+		myEditor->SetWindow(myWindow);
+		myEditor->Initialize();
 
         return true;
     }
@@ -81,27 +102,27 @@ namespace Proton
         auto start = std::chrono::system_clock::now();
         glfwPollEvents();
 
-        m_Editor->Update(m_DeltaTime);
+        myEditor->Update(myDeltaTime);
 
-        glfwGetFramebufferSize(m_Window, &m_ScreenWidth, &m_ScreenHeight);
-        m_ScreenRatio = m_ScreenWidth / (float)m_ScreenHeight;
-        glViewport(0, 0, m_ScreenWidth, m_ScreenHeight);
+        glfwGetFramebufferSize(myWindow, &myScreenWidth, &myScreenHeight);
+        myScreenRatio = myScreenWidth / (float)myScreenHeight;
+        glViewport(0, 0, myScreenWidth, myScreenHeight);
         glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        m_Editor->Render();
+		myEditor->Render();
 
-        glfwSwapBuffers(m_Window);
+        glfwSwapBuffers(myWindow);
 
         auto end = std::chrono::system_clock::now();
         std::chrono::duration<float> elapsed_seconds = end - start;
-        m_ElapsedTime = elapsed_seconds.count();
-        m_DeltaTime = m_ElapsedTime;
-        m_RunTime += m_DeltaTime;
+        myElapsedTime = elapsed_seconds.count();
+        myDeltaTime = myElapsedTime;
+        myRunTime += myDeltaTime;
 
         if (glfwWindowShouldClose(GetWindow()))
         {
-            m_WindowShouldClose = false;
+            myWindowShouldClose = false;
         }
 
         return true;
@@ -109,8 +130,8 @@ namespace Proton
 
     bool Engine::Shutdown()
     {
-        m_Editor->Destroy();
-        glfwDestroyWindow(m_Window);
+        myEditor->Destroy();
+        glfwDestroyWindow(myWindow);
         glfwTerminate();
 
         return true;
@@ -118,13 +139,13 @@ namespace Proton
 
     bool Engine::GetWindowShouldClose()
     {
-        return m_WindowShouldClose;
+        return myWindowShouldClose;
     }
 
     // Systems
-    Editor* Engine::EditorInstance() { return m_Editor; }
-    Scene* Engine::SceneInstance() { return m_Scene; }
-    Settings* Engine::SettingsInstance() { return m_Settings; }
+    Editor* Engine::EditorInstance() { return myEditor; }
+    Scene* Engine::SceneInstance() { return myScene; }
+    Settings* Engine::SettingsInstance() { return mySettings; }
 }
 
 Proton::Editor* EditorInstance()

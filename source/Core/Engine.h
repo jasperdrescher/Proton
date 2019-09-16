@@ -22,7 +22,7 @@ namespace Proton
         bool Shutdown();
         bool GetWindowShouldClose();
 
-        GLFWwindow* GetWindow() { return m_Window; }
+        GLFWwindow* GetWindow() { return myWindow; }
 
         Editor* EditorInstance();
         Scene* SceneInstance();
@@ -30,18 +30,20 @@ namespace Proton
 
     private:
         // Member systems
-        Editor* m_Editor;
-        Scene* m_Scene;
-        Settings* m_Settings;
+        Editor* myEditor;
+        Scene* myScene;
+        Settings* mySettings;
 
-        GLFWwindow* m_Window;
-        float m_RunTime;
-        float m_ElapsedTime;
-        float m_DeltaTime;
-        int m_ScreenWidth = 720;
-        int m_ScreenHeight = 480;
-        float m_ScreenRatio;
-        bool m_WindowShouldClose = true;
+		// GLFW
+        GLFWwindow* myWindow;
+
+		int myScreenWidth;
+		int myScreenHeight;
+		float myScreenRatio;
+        float myDeltaTime;
+        float myRunTime;
+        float myElapsedTime;
+        bool myWindowShouldClose = true;
     };
 }
 
