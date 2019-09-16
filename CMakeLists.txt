@@ -39,6 +39,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 # Source files
 set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/source")
 set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/dependencies")
+set(IMGUI_DIR "${LIB_DIR}/imgui")
 
 # Executable definition and properties
 file(GLOB_RECURSE SRC
@@ -50,16 +51,14 @@ file(GLOB_RECURSE INC
 )
 
 file(GLOB IMGUI
-	"${LIB_DIR}/imgui/imgui_internal.h"
-	"${LIB_DIR}/imgui/imgui.h"
-	"${LIB_DIR}/imgui/imgui.cpp"
-	"${LIB_DIR}/imgui/imconfig.h"
-	"${LIB_DIR}/imgui/imgui_draw.cpp"
+	"${IMGUI_DIR}/*.h"
+	"${IMGUI_DIR}/*.cpp"
 )
 
 add_executable(${PROJECT_NAME} ${SRC} ${INC} ${IMGUI})
 
 source_group("imgui" FILES ${IMGUI})
+#source_group("imgui" FILES ${IMGUI})
 
 # GLFW
 set(GLFW_DIR "${LIB_DIR}/glfw")
@@ -91,8 +90,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/dependencies/tinyobjloader")
 
 # Imgui
-set(IMGUI_DIR "${LIB_DIR}/imgui")
-target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/dependencies/imgui")
+target_include_directories(${PROJECT_NAME} PRIVATE "${IMGUI_DIR}")
 
 # Add project filters to VS
 add_project_filters(${SRC_DIR} SRC Source)
