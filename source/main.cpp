@@ -14,7 +14,7 @@ int main()
 		return -1;
 	}
 
-	while (engine.GetWindowShouldClose())
+	while (!engine.GetWindowShouldClose())
 	{
 		engine.Loop();
 	}
