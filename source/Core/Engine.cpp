@@ -7,7 +7,6 @@
 #include <chrono>
 #include <algorithm>
 
-// Singleton engine instnace
 Proton::Engine ProtonEngine;
 
 namespace Proton
@@ -142,7 +141,6 @@ namespace Proton
         return myWindowShouldClose;
     }
 
-    // Systems
     Editor* Engine::EditorInstance() { return myEditor; }
     Scene* Engine::SceneInstance() { return myScene; }
     Settings* Engine::SettingsInstance() { return mySettings; }

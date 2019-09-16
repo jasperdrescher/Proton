@@ -5,7 +5,6 @@
 
 namespace Proton
 {
-    // Forward declarations of systems
     class Editor;
     class Scene;
     class Settings;
@@ -29,12 +28,10 @@ namespace Proton
         Settings* SettingsInstance();
 
     private:
-        // Member systems
         Editor* myEditor;
         Scene* myScene;
         Settings* mySettings;
 
-		// GLFW
         GLFWwindow* myWindow;
 
 		int myScreenWidth;
@@ -47,7 +44,6 @@ namespace Proton
     };
 }
 
-// Methods to get systems globally
 extern Proton::Editor* EditorInstance();
 extern Proton::Scene* SceneInstance();
 extern Proton::Settings* SettingsInstance();
