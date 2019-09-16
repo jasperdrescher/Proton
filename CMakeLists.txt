@@ -58,7 +58,6 @@ file(GLOB IMGUI
 add_executable(${PROJECT_NAME} ${SRC} ${INC} ${IMGUI})
 
 source_group("imgui" FILES ${IMGUI})
-#source_group("imgui" FILES ${IMGUI})
 
 # GLFW
 set(GLFW_DIR "${LIB_DIR}/glfw")
