@@ -1,12 +1,11 @@
 #include "Settings.h"
 
-#include <cereal/archives/xml.hpp>
-
 #include <fstream>
 
 namespace Proton
 {
     Settings::Settings()
+		: mySettingsPath("../resources/settings/")
     {
     }
 
@@ -14,47 +13,32 @@ namespace Proton
     {
     }
 
-    bool Settings::Load(std::string a_Filepath)
+    bool Settings::LoadWindowSettings(int& aScreenWidth, int& aScreenHeight)
     {
-        /*std::ifstream instream(a_Filepath);
+        std::ifstream instream(mySettingsPath + "window.xml");
         cereal::XMLInputArchive archive(instream);
 
-        archive(settings);*/
+		WindowSettingsData test;
+		archive(test);
+
+		aScreenWidth = test.screenWidth;
+		aScreenHeight = test.screenHeight;
 
         return true;
     }
 
-    bool Settings::Reload(std::string a_Filepath)
+    bool Settings::SaveWindowSettings(int aScreenWidth, int aScreenHeight)
     {
-        std::ifstream instream(a_Filepath);
-        cereal::XMLInputArchive archive(instream);
+		WindowSettingsData test;
 
-        //archive(m_Settings);
+		test.screenWidth = aScreenWidth;
+		test.screenHeight = aScreenHeight;
 
-        return false;
-    }
-
-    bool Settings::Save(std::string a_Filepath)
-    {
-        SettingsStruct settings;
-        settings.screenWidth = 1;
-        settings.screenHeight = 1;
-
-        std::ofstream outstream(a_Filepath);
+        std::ofstream outstream(mySettingsPath + "window.xml");
         cereal::XMLOutputArchive archive(outstream);
 
-        archive(CEREAL_NVP(settings));
+        archive(CEREAL_NVP(test));
 
         return true;
-    }
-
-    int Settings::GetScreenWidth() const
-    {
-        return m_ScreenWidth;
-    }
-
-    int Settings::GetScreenHeight() const
-    {
-        return m_ScreenHeight;
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
-	<settings>
-		<screenWidth>1</screenWidth>
-		<screenHeight>1</screenHeight>
-	</settings>
+	<test>
+		<screenWidth>720</screenWidth>
+		<screenHeight>480</screenHeight>
+	</test>
 </cereal>
 

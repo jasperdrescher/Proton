@@ -1,18 +1,19 @@
 #pragma once
 
 #include <string>
-#include <cereal/cereal.hpp>
+#include <cereal/archives/xml.hpp>
 
 namespace Proton
 {
-    struct SettingsStruct
+    struct	WindowSettingsData
     {
-        int screenWidth, screenHeight;
+		int screenWidth;
+		int screenHeight;
 
         template<class Archive>
-        void serialize(Archive & archive)
+        void serialize(Archive& anArchive)
         {
-            archive(CEREAL_NVP(screenWidth), CEREAL_NVP(screenHeight));
+            anArchive(CEREAL_NVP(screenWidth), CEREAL_NVP(screenHeight));
         }
     };
 
@@ -22,21 +23,10 @@ namespace Proton
         Settings();
         ~Settings();
 
-        bool Load(std::string a_Filepath);
-        bool Reload(std::string a_Filepath);
-        bool Save(std::string a_Filepath);
+        bool LoadWindowSettings(int& aScreenWidth, int& aScreenHeight);
+        bool SaveWindowSettings(int aScreenWidth, int aScreenHeight);
 
-        int GetScreenWidth() const;
-        int GetScreenHeight() const;
-        float GetScreenRatio() const;
-
-        int SetScreenWidth();
-        int SetScreenHeight();
-        float SetScreenRatio();
-
-    private:
-        int m_ScreenWidth = 720;
-        int m_ScreenHeight = 480;
-        float m_ScreenRatio;
+	private:
+		std::string mySettingsPath;
     };
 }

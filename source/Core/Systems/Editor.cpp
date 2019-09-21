@@ -2,6 +2,9 @@
 #include "imgui.h"
 #include "imguiGL.h"
 
+#include <math.h>
+#include <stdio.h>
+
 namespace Proton
 {
     Editor::Editor()

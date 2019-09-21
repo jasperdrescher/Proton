@@ -78,10 +78,14 @@ namespace Proton
             return false;
         }
 
-        // Initialize the editor
         myEditor = new Editor();
 		myEditor->SetWindow(myWindow);
 		myEditor->Initialize();
+
+		mySettings = new Settings();
+		mySettings->SaveWindowSettings(myScreenWidth, myScreenHeight);
+
+		mySettings->LoadWindowSettings(myScreenWidth, myScreenHeight);
 
         return true;
     }
@@ -103,7 +107,10 @@ namespace Proton
 
         myEditor->Update(myDeltaTime);
 
-        glfwGetFramebufferSize(myWindow, &myScreenWidth, &myScreenHeight);
+		int screenWidth = static_cast<int>(myScreenWidth);
+		int screenHeight = static_cast<int>(myScreenHeight);
+
+        glfwGetFramebufferSize(myWindow, &screenWidth, &screenHeight);
         myScreenRatio = myScreenWidth / (float)myScreenHeight;
         glViewport(0, 0, myScreenWidth, myScreenHeight);
         glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
@@ -155,6 +162,7 @@ Proton::Scene* SceneInstance()
 {
     return ProtonEngine.SceneInstance();
 }
+
 Proton::Settings* SettingsInstance()
 {
     return ProtonEngine.SettingsInstance();
