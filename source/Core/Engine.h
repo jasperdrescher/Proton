@@ -12,7 +12,7 @@ namespace Proton
     class Engine
     {
     public:
-		Engine();
+	Engine();
         ~Engine();
 
         bool Initialize();
@@ -34,9 +34,9 @@ namespace Proton
 
         GLFWwindow* myWindow;
 
-		int myScreenWidth;
-		int myScreenHeight;
-		float myScreenRatio;
+	int myScreenWidth;
+	int myScreenHeight;
+	float myScreenRatio;
         float myDeltaTime;
         float myRunTime;
         float myElapsedTime;
